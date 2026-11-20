@@ -1,0 +1,1 @@
+export function WhatsApp(){return <a aria-label="Chat on WhatsApp" href="https://wa.me/919876543210" target="_blank" rel="noreferrer" className="focus-ring fixed bottom-5 right-5 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-maroon text-2xl text-ivory shadow-xl transition hover:-translate-y-1 md:bottom-7 md:right-7">◔</a>}
