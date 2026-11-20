@@ -1,3 +1,5 @@
+export type PackageItem = [string, string, string[]];
+
 export const CONTENT = {
   brand: {
     name: "[Planner Name]",
@@ -46,7 +48,7 @@ export const CONTENT = {
     ["Essential", "For beautifully simple celebrations", ["Planning roadmap", "Vendor shortlisting", "Wedding-day coordination"]],
     ["Signature", "Our most balanced experience", ["Full planning", "Design direction", "Vendor management", "Guest experience"]],
     ["Luxury", "For deeply bespoke celebrations", ["End-to-end production", "Custom design & styling", "Destination logistics", "Dedicated on-ground team"]],
-  ],
+  ] as PackageItem[],
   testimonials: [
     ["Ananya & Rohan", "Mumbai", "“We never felt like we were managing a wedding. We were actually living ours.”"],
     ["Meera & Arjun", "Delhi", "“Every detail felt intentional, but nothing felt overdone. Exactly what we wanted.”"],
