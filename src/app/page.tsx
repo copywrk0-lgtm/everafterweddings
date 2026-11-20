@@ -113,7 +113,7 @@ export default function Home() {
       <header className="site-header">
         <div className="wrap bar">
           <a className="mark" href="#top" aria-label="Ever After Weddings, home"><b>E<i>∞</i>A</b><span>Ever After Weddings</span></a>
-          <nav className="nav" aria-label="Main"><a href="#celebrations">Celebrations</a><a href="#approach">Approach</a><a href="#feel">Find your feeling</a><a className="btn" href="#enquire">Plan with us</a></nav>
+          <nav className="nav" aria-label="Main"><a href="/celebrations">Celebrations</a><a href="/approach">Approach</a><a href="/feel">Find your feeling</a><a className="btn" href="/plan">Plan with us</a></nav>
         </div>
       </header>
 
@@ -168,8 +168,8 @@ export default function Home() {
 
         <section className="belief"><div className="wrap belief-grid"><p className="eyebrow">We believe</p><div><p className="big">The most memorable celebrations aren’t defined by how grand they are, but by how <em>seamlessly</em> they unfold.</p><p className="sub">Intuitive planning. Intentional design. A day beautifully lived.</p></div></div></section>
 
-        <section className="stories" id="celebrations"><div className="wrap"><div className="sec-head"><div><p className="eyebrow">Selected celebrations</p><h2>Stories we <em>hold close</em></h2></div><a className="btn ghost" href="https://everafterwedding.vercel.app/celebrations" target="_blank" rel="noopener">View all celebrations ↗</a></div>
-          <div className="story-grid"><div className="story-list">{stories.map((s,i)=><a key={s.names} className={`story ${story===i?'active':''}`} href="#celebrations" onMouseEnter={()=>setStory(i)} onFocus={()=>setStory(i)}><span className="thumb"><div className="art"><img src={s.image} alt={s.alt}/></div></span><span><span className="names">{s.names}</span><span className="where">{s.place} · {s.venue}</span></span><span className="go">↗</span></a>)}</div>
+        <section className="stories" id="celebrations"><div className="wrap"><div className="sec-head"><div><p className="eyebrow">Selected celebrations</p><h2>Stories we <em>hold close</em></h2></div><a className="btn ghost" href="/celebrations">View all celebrations ↗</a></div>
+          <div className="story-grid"><div className="story-list">{stories.map((s,i)=><a key={s.names} className={`story ${story===i?'active':''}`} href={`/celebrations/${s.names === "Nikki & Ravi" ? "nikki-ravi" : s.names === "Yugandhara & Ninad" ? "yugandhara-ninad" : "gitika-anish"}`} onMouseEnter={()=>setStory(i)} onFocus={()=>setStory(i)}><span className="thumb"><div className="art"><img src={s.image} alt={s.alt}/></div></span><span><span className="names">{s.names}</span><span className="where">{s.place} · {s.venue}</span></span><span className="go">↗</span></a>)}</div>
             <aside className="preview" aria-hidden="true"><div className="frame">{stories.map((s,i)=><div className={`pv ${story===i?'on':''}`} key={s.names}><div className="art"><img src={s.image} alt=""/></div></div>)}</div><p className="cap">{stories[story].venue}</p></aside>
           </div>
         </div></section>
@@ -187,7 +187,7 @@ export default function Home() {
         </div></section>
       </main>
 
-      <footer className="foot"><div className="wrap"><div className="foot-grid"><div><a className="mark" href="#top"><b>E<i>∞</i>A</b><span>Ever After Weddings</span></a><p style={{marginTop:14,color:'var(--ink-soft)',maxWidth:'22em'}}>Intuitive wedding planning and design for celebrations in Mumbai, Bahrain and beyond.</p></div><div><h4>Explore</h4><ul><li><a href="#celebrations">Celebrations</a></li><li><a href="#approach">Our approach</a></li><li><a href="#feel">Find your feeling</a></li><li><a href="#enquire">Plan with us</a></li></ul></div><div><h4>Say hello</h4><ul><li className="addr">yuga@everafter.ind.in</li><li className="addr">+91 91674 11088</li><li><a href="https://www.instagram.com/everafter.ind.in/" target="_blank" rel="noopener">Instagram ↗</a></li></ul></div></div><div className="tiny"><span>© 2026 Ever After Weddings</span><span>Concept by Copywrk</span></div></div></footer>
+      <footer className="foot"><div className="wrap"><div className="foot-grid"><div><a className="mark" href="#top"><b>E<i>∞</i>A</b><span>Ever After Weddings</span></a><p style={{marginTop:14,color:'var(--ink-soft)',maxWidth:'22em'}}>Intuitive wedding planning and design for celebrations in Mumbai, Bahrain and beyond.</p></div><div><h4>Explore</h4><ul><li><a href="#celebrations">Celebrations</a></li><li><a href="/approach">Our approach</a></li><li><a href="/feel">Find your feeling</a></li><li><a href="/plan">Plan with us</a></li></ul></div><div><h4>Say hello</h4><ul><li className="addr">yuga@everafter.ind.in</li><li className="addr">+91 91674 11088</li><li><a href="https://www.instagram.com/everafter.ind.in/" target="_blank" rel="noopener">Instagram ↗</a></li></ul></div></div><div className="tiny"><span>© 2026 Ever After Weddings</span><span>Concept by Copywrk</span></div></div></footer>
 
       <a className="wa-float" href={waLink(`Hi ${OWNER}, I’d like to discuss planning our wedding.`)} target="_blank" rel="noopener" aria-label="Chat with Ever After on WhatsApp"><span className="wa-icon">◔</span> WhatsApp</a>
       <Chatbot />
