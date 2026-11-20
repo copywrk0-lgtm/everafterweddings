@@ -7,9 +7,9 @@ const WA = '919167411088'
 const OWNER = 'Yuga'
 
 const stories = [
-  { names: 'Nikki & Ravi', venue: 'Sofitel Bahrain Zallaq Thalassa Sea & Spa', place: 'Bahrain', image: '/images/0006-2be554e6.webp', alt: 'Wedding celebration with floral stage and warm golden lighting' },
-  { names: 'Yugandhara & Ninad', venue: 'Mumbai, India', place: 'Mumbai', image: '/images/0002-d2a5b732.webp', alt: 'Indian wedding celebration with couple and guests' },
-  { names: 'Gitika & Anish', venue: 'Radisson Blu Udaipur Palace Resort & Spa', place: 'Udaipur', image: '/images/0007-227c860a.webp', alt: 'Outdoor floral wedding ceremony overlooking the lake' },
+  { names: 'Nikki & Ravi', venue: 'Sofitel Bahrain Zallaq Thalassa Sea & Spa', place: 'Bahrain', image: '/images/0006-2be554e6.webp', alt: 'Wedding celebration with floral stage and warm golden lighting at Sofitel Bahrain Zallaq' },
+  { names: 'Yugandhara & Ninad', venue: 'India', place: 'Mumbai', image: '/images/0002-d2a5b732.webp', alt: 'Yugandhara and Ninad wedding celebration in Mumbai, India' },
+  { names: 'Gitika & Anish', venue: 'Radisson Blu Udaipur Palace Resort & Spa', place: 'Udaipur', image: '/images/0007-227c860a.webp', alt: 'Sangeet stage at Gitika and Anish’s wedding in Udaipur' },
 ]
 
 const events = [
@@ -126,7 +126,7 @@ export default function Home() {
               <p className="lead">Celebrations that feel natural, meaningful and distinctly personal.</p>
               <div className="datecheck" role="group" aria-label="Check your date">
                 <label><span>Wedding month</span><select value={dateMonth} onChange={e=>setDateMonth(e.target.value)}><option value="">Choose a month</option>{months.map(m=><option key={m}>{m}</option>)}</select></label>
-                <label><span>City</span><input value={dateCity} onChange={e=>setDateCity(e.target.value)} type="text" placeholder="City or venue" /></label>
+                <label><span>Wedding location</span><input value={dateCity} onChange={e=>setDateCity(e.target.value)} type="text" placeholder="City or venue" /></label>
                 <a className="btn" href={dateHref} target="_blank" rel="noopener">Check your date ↗</a>
               </div>
               <p className="reply-note">Opens WhatsApp with your details ready to send. We reply personally.</p>
@@ -158,7 +158,7 @@ export default function Home() {
               <div className="scrub">
                 <div className="scrub-top"><span className="clock">{fmt(time)}</span><button className="play" type="button" onClick={()=>setPlaying(v=>!v)}>{playing?'Pause':'Play the day'}</button></div>
                 <input type="range" min="6" max="23.5" step=".25" value={time} onChange={e=>{setPlaying(false);setTime(Number(e.target.value))}} aria-label="Time of day on the wedding day"/>
-                <h2 className="ev-title">{events[eventIndex].title}</h2><p className="ev-body">{events[eventIndex].body}</p>
+                <h2 className="ev-title" aria-live="polite">{events[eventIndex].title}</h2><p className="ev-body" aria-live="polite">{events[eventIndex].body}</p>
                 <div className="stops">{events.map(e=><button key={e.t} className="stop" aria-pressed={eventIndex===events.indexOf(e)} onClick={()=>{setPlaying(false);setTime(e.t)}}>{fmt(e.t)} {e.short}</button>)}</div>
                 <p className="sample-note">A sample run of show. Every real day is built around your rituals.</p>
               </div>
@@ -170,7 +170,7 @@ export default function Home() {
 
         <section className="stories" id="celebrations"><div className="wrap"><div className="sec-head"><div><p className="eyebrow">Selected celebrations</p><h2>Stories we <em>hold close</em></h2></div><a className="btn ghost" href="/celebrations">View all celebrations ↗</a></div>
           <div className="story-grid"><div className="story-list">{stories.map((s,i)=><a key={s.names} className={`story ${story===i?'active':''}`} href={`/celebrations/${s.names === "Nikki & Ravi" ? "nikki-ravi" : s.names === "Yugandhara & Ninad" ? "yugandhara-ninad" : "gitika-anish"}`} onMouseEnter={()=>setStory(i)} onFocus={()=>setStory(i)}><span className="thumb"><div className="art"><img src={s.image} alt={s.alt}/></div></span><span><span className="names">{s.names}</span><span className="where">{s.place} · {s.venue}</span></span><span className="go">↗</span></a>)}</div>
-            <aside className="preview" aria-hidden="true"><div className="frame">{stories.map((s,i)=><div className={`pv ${story===i?'on':''}`} key={s.names}><div className="art"><img src={s.image} alt=""/></div></div>)}</div><p className="cap">{stories[story].venue}</p></aside>
+            <aside className="preview" aria-hidden="true"><div className="frame">{stories.map((s,i)=><div className={`pv ${story===i?'on':''}`} key={s.names}><div className="art"><img src={s.image} alt="" loading="lazy"/></div></div>)}</div><p className="cap">{stories[story].venue}</p></aside>
           </div>
         </div></section>
 
@@ -182,12 +182,12 @@ export default function Home() {
 
         <section className="quote"><div className="wrap"><p>“What remains is not the planning, but the feeling of a day <em>beautifully lived.</em>”</p><span className="mark-inf">E∞A</span></div></section>
 
-        <section className="enquire" id="enquire"><div className="wrap enq-grid"><div className="enq-copy"><p className="eyebrow">Begin your story</p><h2>Tell us what <em>you’re imagining.</em></h2><p>Share the basics and we’ll respond personally within two working days to arrange a first conversation.</p><dl className="direct"><div><dt>WhatsApp and phone</dt><dd>+91 91674 11088</dd></div><div><dt>Email</dt><dd>yuga@everafter.ind.in</dd></div><div><dt>Based in</dt><dd>Mumbai · Bahrain · Worldwide</dd></div></dl></div>
+        <section className="enquire" id="enquire"><div className="wrap enq-grid"><div className="enq-copy"><p className="eyebrow">Begin your story</p><h2>Tell us what <em>you’re imagining.</em></h2><p>Share the basics and we’ll respond personally within two working days to arrange a first conversation.</p><dl className="direct"><div><dt>WhatsApp and phone</dt><dd><a href="tel:+919167411088">+91 91674 11088</a></dd></div><div><dt>Email</dt><dd><a href="mailto:yuga@everafter.ind.in">yuga@everafter.ind.in</a></dd></div><div><dt>Based in</dt><dd>Mumbai · Bahrain · Worldwide</dd></div></dl></div>
           <form className="form" onSubmit={submit} noValidate><div className="field"><label>Your name</label><input value={name} onChange={e=>setName(e.target.value)} required/><span className="err">{!name.trim() && sent ? 'Please add your name so we know who to reply to.' : ''}</span></div><div className="field"><label>Phone / WhatsApp</label><input value={phone} onChange={e=>setPhone(e.target.value)} type="tel"/></div><div className="field"><label>Wedding location</label><input value={city} onChange={e=>setCity(e.target.value)} placeholder="City or venue"/></div><div className="field"><label>Wedding month</label><select value={month} onChange={e=>setMonth(e.target.value)}><option value="">Not decided yet</option>{months.map(m=><option key={m}>{m}</option>)}</select></div><div className="field full"><label>Tell us about your celebration</label><textarea value={note} onChange={e=>setNote(e.target.value)} placeholder="Rituals, guest count, the feeling you want"/></div><div className="form-foot"><button className="btn" type="submit">Start the conversation ↗</button><small>Your details stay private and are only used to respond to your enquiry.</small></div>{sent&&name.trim()&&<div className="sent"><h3>Your message is ready</h3><p>It opens in WhatsApp with your details filled in. Nothing is sent until you press send there.</p><a className="btn" href={enquiryHref} target="_blank" rel="noopener">Open WhatsApp ↗</a></div>}</form>
         </div></section>
       </main>
 
-      <footer className="foot"><div className="wrap"><div className="foot-grid"><div><a className="mark" href="#top"><b>E<i>∞</i>A</b><span>Ever After Weddings</span></a><p style={{marginTop:14,color:'var(--ink-soft)',maxWidth:'22em'}}>Intuitive wedding planning and design for celebrations in Mumbai, Bahrain and beyond.</p></div><div><h4>Explore</h4><ul><li><a href="#celebrations">Celebrations</a></li><li><a href="/approach">Our approach</a></li><li><a href="/feel">Find your feeling</a></li><li><a href="/plan">Plan with us</a></li></ul></div><div><h4>Say hello</h4><ul><li className="addr">yuga@everafter.ind.in</li><li className="addr">+91 91674 11088</li><li><a href="https://www.instagram.com/everafter.ind.in/" target="_blank" rel="noopener">Instagram ↗</a></li></ul></div></div><div className="tiny"><span>© 2026 Ever After Weddings</span><span>Concept by Copywrk</span></div></div></footer>
+      <footer className="foot"><div className="wrap"><div className="foot-grid"><div><a className="mark" href="#top"><b>E<i>∞</i>A</b><span>Ever After Weddings</span></a><p style={{marginTop:14,color:'var(--ink-soft)',maxWidth:'22em'}}>Intuitive wedding planning and design for celebrations in Mumbai, Bahrain and beyond.</p></div><div><h4>Explore</h4><ul><li><a href="#celebrations">Celebrations</a></li><li><a href="/approach">Our approach</a></li><li><a href="/feel">Find your feeling</a></li><li><a href="/plan">Plan with us</a></li></ul></div><div><h4>Say hello</h4><ul><li className="addr"><a href="mailto:yuga@everafter.ind.in">yuga@everafter.ind.in</a></li><li className="addr"><a href="tel:+919167411088">+91 91674 11088</a></li><li><a href="https://www.instagram.com/everafter.ind.in/" target="_blank" rel="noopener">Instagram ↗</a></li></ul></div></div><div className="tiny"><span>© 2026 Ever After Weddings</span><span>Concept by Copywrk</span></div></div></footer>
 
       <a className="wa-float" href={waLink(`Hi ${OWNER}, I’d like to discuss planning our wedding.`)} target="_blank" rel="noopener" aria-label="Chat with Ever After on WhatsApp"><span className="wa-icon">◔</span> WhatsApp</a>
       <Chatbot />
