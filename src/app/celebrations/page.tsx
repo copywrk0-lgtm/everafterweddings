@@ -10,7 +10,7 @@ export default function CelebrationsPage(){
  return <main className="inner-page">
   <header className="site-header"><div className="wrap bar"><Link className="mark" href="/"><b>E<i>∞</i>A</b><span>Ever After Weddings</span></Link><nav className="nav"><Link href="/celebrations">Celebrations</Link><Link href="/approach">Approach</Link><Link href="/feel">Find your feeling</Link><Link className="btn" href="/plan">Plan with us</Link></nav></div></header>
   <section className="inner-hero"><div className="wrap"><p className="eyebrow">Selected celebrations</p><h1>Stories we <em>hold close.</em></h1><p className="lead">A few of the days, places and people that remind us why we do this.</p></div></section>
-  <section className="story-archive"><div className="wrap archive-grid">{stories.map(s=><Link href={`/celebrations/${s.slug}`} className="archive-card" key={s.slug}><div className="archive-image"><img src={s.image} alt={s.names}/></div><div className="archive-copy"><p className="eyebrow">{s.place}</p><h2>{s.names}</h2><p>{s.venue}</p><span>Read the story ↗</span></div></Link>)}</div></section>
+  <section className="story-archive"><div className="wrap archive-grid">{stories.map(s=><Link href={`/celebrations/${s.slug}`} className="archive-card" key={s.slug}><div className="archive-image"><img src={s.image} alt={s.names + " wedding celebration in " + s.place} width={800} height={1000} loading="lazy"/></div><div className="archive-copy"><p className="eyebrow">{s.place}</p><h2>{s.names}</h2><p>{s.venue}</p><span>Read the story ↗</span></div></Link>)}</div></section>
   <footer className="foot"><div className="wrap"><div className="tiny"><span>© 2026 Ever After Weddings</span><Link href="/">Back home ↗</Link></div></div></footer>
  </main>
 }
