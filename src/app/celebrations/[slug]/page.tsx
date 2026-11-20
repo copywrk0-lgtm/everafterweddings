@@ -15,7 +15,7 @@ export default async function StoryPage({params}:{params:Promise<{slug:string}>}
  if(!s) notFound()
  return <main className="inner-page story-detail">
   <header className="site-header"><div className="wrap bar"><Link className="mark" href="/"><b>E<i>∞</i>A</b><span>Ever After Weddings</span></Link><nav className="nav"><Link href="/celebrations">Celebrations</Link><Link href="/approach">Approach</Link><Link href="/feel">Find your feeling</Link><Link className="btn" href="/plan">Plan with us</Link></nav></div></header>
-  <section className="detail-hero"><div className="wrap detail-grid"><div><Link className="back" href="/celebrations">← All celebrations</Link><p className="eyebrow">{s.place} · {s.venue}</p><h1>{s.names}</h1><p className="lead">{s.intro}</p></div><div className="detail-image"><img src={s.image} alt={s.names}/></div></div></section>
+  <section className="detail-hero"><div className="wrap detail-grid"><div><Link className="back" href="/celebrations">← All celebrations</Link><p className="eyebrow">{s.place} · {s.venue}</p><h1>{s.names}</h1><p className="lead">{s.intro}</p></div><div className="detail-image"><img src={s.image} alt={s.names + " wedding celebration in " + s.place} width={800} height={1000} loading="lazy"/></div></div></section>
   <section className="detail-body"><div className="wrap detail-body-grid"><p className="eyebrow">The feeling</p><div>{s.details.map((d,i)=><p className="big-detail" key={i}>{d}</p>)}<Link className="btn" href="/plan">Plan something of your own ↗</Link></div></div></section>
  </main>
 }
