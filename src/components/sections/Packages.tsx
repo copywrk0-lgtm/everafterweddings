@@ -3,7 +3,6 @@
 import { useState } from 'react'
 import { CONTENT } from '@/config/content'
 
-type PackageItem = readonly [string, string, readonly string[]]
 
 export function Packages() {
   const [custom, setCustom] = useState(false)
@@ -30,7 +29,7 @@ export function Packages() {
         </div>
 
         <div className="mt-12 grid gap-4 md:grid-cols-3">
-          {(CONTENT.packages as readonly PackageItem[]).map(([name, desc, features], i) => (
+          {(CONTENT.packages).map(([name, desc, features], i) => (
             <article
               key={name}
               className={`border p-7 ${i === 1 ? 'border-gold bg-maroon text-ivory' : 'border-maroon/10 bg-white/50'}`}
