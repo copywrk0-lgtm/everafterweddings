@@ -74,3 +74,7 @@
 .plan-card .direct p{margin:0 0 18px;font-size:.9rem}
 @media(max-width:850px){.archive-grid,.detail-grid,.detail-body-grid,.feel-grid,.plan-grid{grid-template-columns:1fr}.archive-grid{gap:55px}.detail-grid{gap:45px}.approach-list article{grid-template-columns:70px 1fr}.inner-hero,.detail-hero,.feel-page,.plan-page{padding-top:110px}.detail-body-grid{gap:25px}}
 @media(max-width:560px){.archive-image{aspect-ratio:4/5}.approach-list article{grid-template-columns:1fr;gap:12px}.feel-card{padding:24px}.feel-options b{font-size:1.25rem}.feel-options span{display:none}}
+
+/* Accessibility and mobile tap targets */
+.eyebrow,.field label,.q-progress span,.step .eyebrow,.archive-copy span{font-size:max(12px,.68rem)}
+.direct a,.foot .addr a{color:inherit;text-decoration:none}.direct a:hover,.foot .addr a:hover{text-decoration:underline;text-underline-offset:4px}
